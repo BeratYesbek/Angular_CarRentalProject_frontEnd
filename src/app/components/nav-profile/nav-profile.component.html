@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <div class="row">
+        <div id="userProfile">
+          <ng-container *ngIf="userDetail.images.length !== 0  ; else elseTemplate">
+            <img  style="width: 100%; height: 100%; border-radius: 50%;" src="https://localhost:44348{{userDetail.images[0].imagePath}}">
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img style="width: 100%; height: 100%;" src="assets/img/avatar.png">
+          </ng-template>
+
+        </div>
+        <button  style="margin-left: 5px; 5;" class="btn btn-light" id="dropdownBasic1" ngbDropdownToggle>
+          {{userDetail.firstName + " " + userDetail.lastName}}
+        </button>
+      </div>
+      <ng-container style="margin:10px;" *ngIf="customer; else elseTemplate2">
+        <i style=" font-size:16px; color:#fff" class="fas fa-award fa-2x">Prime Customer</i>
+
+      </ng-container>
+      <ng-template #elseTemplate2>
+      </ng-template>
+      <ng-container  style="margin:10px;" *ngIf="admin;">
+        <i style="  font-size:16px;color:#fff" class="fas fa-user-shield  fa-2x">Admin</i>
+
+      </ng-container>
+
+
+
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button routerLink="/settings" ngbDropdownItem>Settings</button>
+        <button routerLink="/my-credit-card" ngbDropdownItem>My credit cards</button>
+        <button routerLink="/" (click)="signOut()" ngbDropdownItem>Exit Account</button>
+      </div>
+    </div>
+  </div>
+</div>

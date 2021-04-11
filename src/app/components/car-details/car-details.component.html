@@ -1,0 +1,40 @@
+<div class="container">
+  <div>
+    <div style="margin-top: 50px;">
+      <img src="https://localhost:44348{{carDetail.carImages[0].imagePath}}"  class="rounded img-thumbnail float-left"
+      alt="...">
+    <ul>
+      <li style="padding:px" *ngFor="let carImage of carDetail.carImages">
+
+        <img src="https://localhost:44348{{carImage.imagePath}}" style="width: 200px; height: 200px;"
+          class="rounded img-thumbnail float-left" alt="...">
+
+      </li>
+    </ul>
+    </div>
+
+
+    <div class="card" style="width:100%; margin-bottom: 100px; margin-top: 220px;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          {{carDetail.brandName}}
+        </li>
+        <li class="list-group-item">
+          {{carDetail.modelName}}
+        </li>
+        <li class="list-group-item">
+          {{carDetail.modelYear}}
+        </li>
+        <li class="list-group-item">
+          {{carDetail.colorName}}
+        </li>
+        <li class="list-group-item">
+          {{carDetail.description}}
+        </li>
+        <li class="list-group-item">
+          {{carDetail.dailyPrice}}
+        </li>
+
+      </ul>
+    </div>
+  </div>

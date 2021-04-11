@@ -1,0 +1,15 @@
+<div style="margin-top: 50px;">
+  <h6 style="color:#fff">Color</h6>
+  <div id="radioBox"  style="display: block;  overflow-y: auto; height: 220px;">
+    <ul>
+      <li  style="color:#FFCC00 ;" *ngFor="let color of colors">
+        <input (click)="getCurrentColor($event)"
+        routerLink = "/cars/color/{{color.colorId}}"
+        type="radio" name="distance"/>   {{color.colorName}}<br>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+

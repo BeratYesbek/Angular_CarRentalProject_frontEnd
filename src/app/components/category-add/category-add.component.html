@@ -1,0 +1,7 @@
+<form [formGroup]="categoryAddForm">
+  <div class="form-group">
+    <label>Category</label>
+    <input  type="text" class="form-control" formControlName="categoryName"  placeholder="Category" >
+  </div>
+  <button style="width: 150px;" (click)="add()" type="button" class="btn btn-info">Add</button>
+</form>

@@ -1,0 +1,28 @@
+<div style="margin-top: 100px; margin-bottom: 100px;" class="container">
+  <h3 style="text-align: center; color: #fff;">My Credit Cards</h3>
+  <table class="table table-light table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Card Name</th>
+        <th scope="col">Card Number</th>
+        <th scope="col">Card Month</th>
+        <th scope="col">Card Year</th>
+        <th scope="col">Cvv</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let creditCard of creditCards; let i = index">
+        <td>{{creditCard.cardName}}</td>
+        <td>{{creditCard.cardNumber}}</td>
+        <td>{{creditCard.cardMonth}}</td>
+        <td>{{creditCard.cardYear}}</td>
+        <td>{{creditCard.cvv}}</td>
+        <td><button type="button" (click)="removeCreditCard(creditCard)" class="btn btn-outline-danger btn-sm">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

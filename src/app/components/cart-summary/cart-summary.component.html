@@ -1,0 +1,39 @@
+
+<a href="#" *ngIf="quantity>0 ||cartItemMemory.length >0 " class="dropdown">
+  <i class="fas fa-cart-plus fa-2x"><span id='counter'>{{quantity}}</span></i>
+  <div class="dropdown-content">
+  <ul>
+
+    <li class="bg-secondary"  *ngFor="let car of carDetails; let i = index">
+
+
+      <div class="card mb-3 bg-secondary  border-warning" style="max-width: 540px; margin-top: 10px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <ng-container *ngIf="car.carImages[0].imagePath !== null; else elseTemplate">
+
+              <img style="width: 220px;  height: 180px;"  src="https://localhost:44348{{car.carImages[0].imagePath}}" alt="...">
+
+            </ng-container>
+            <ng-template #elseTemplate>
+              <img style="width: 220px;  height: 180px;"  src="assets/img/defaultPicture.jpg" alt="...">
+            </ng-template>
+
+          </div>
+          <div class="col-md-8" style="padding-left: 50px;">
+            <div class="card-body">
+              <h5 class="card-title">{{car.brandName}}</h5>
+              <p class="card-text">{{car.modelName}}</p>
+              <p class="card-text">Price: {{car.dailyPrice}}$  <span>    quantity:{{quantity}}</span></p>
+              <button href="" (click)="removeFromCart(car,i)" class="btn btn-danger">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </li>
+    <button href="" routerLink='/rental'
+    class="btn btn-success">Rental</button>
+  </ul>
+  </div>
+</a>

@@ -1,0 +1,202 @@
+<div style="margin-bottom: 50px;" class="container">
+  <div class="row">
+    <div style="margin-top: 200px;" class="col-md-3">
+      <app-category></app-category>
+      <app-color></app-color>
+
+    </div>
+    <div class="col-md-9" style="padding-left: 70px;">
+      <ng-template #content let-modal style="width: 700px;">
+        <div class="modal-header">
+          <h4 style="color: #000;" class="modal-title" id="modal-basic-title">Detail</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card mb-3">
+            <ng-container *ngIf="carDetails[index].carImages[0].imagePath !== null; else elseTemplate2">
+              <img src="https://localhost:44348{{carDetails[index].carImages[0].imagePath}}" class="card-img-top"
+                alt="image">
+
+
+            </ng-container>
+            <ng-template #elseTemplate2>
+              <img src="assets/img/defaultPicture.jpg" class="card-img-top" alt="image">
+
+
+            </ng-template>
+            <div class="card-body">
+              <h4 style="color: #000;" class="card-title">{{carDetails[index].brandName}}</h4>
+              <h6 style="color: #000;">{{carDetails[index].modelName}}</h6>
+              <h6 style="color: crimson;">COLOR: {{carDetails[index].colorName}}</h6>
+              <p style="color: #000;" class="card-text">{{carDetails[index].description}}
+              </p>
+              <h6 style="color: #28a745;" class="card-text">PRICE: {{carDetails[index].dailyPrice}}$</h6>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+        </div>
+      </ng-template>
+
+
+      <hr>
+
+
+
+      <div class="modal fade" id="staticBackdrop " [ngStyle]="getClass()" data-backdrop="static" data-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style=" margin-left: 70px;" class="mb-3">
+        <label for="filterText">Search</label> <i style="color: cadetblue; padding-left: 5px;"
+          class="fas fa-search "></i>
+        <input placeholder="Enter the model name" style="width: 80%;" type="text" [(ngModel)]="filterText"
+          class="form-control" id="search">
+        <small id="searchSmall" class="form-text text-muted">{{filterText}} searched</small>
+      </div>
+      <div style="margin-left: 70px;">
+        <label style="padding-right: 20px;">Brands</label>
+        <div class="row" style="padding-top: 5px;">
+
+          <div class="col-md-6">
+            <select [(ngModel)]="selectedItem" (ngModelChange)="onSelected($event)" class="custom-select"
+              style="width:200px;">
+              <option *ngFor="let brand of brands" [value]="brand.brandId">
+                {{brand.brandName}}
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div style="margin-top: 100px; margin-left:300px ;" *ngIf="dataLoaded===false" class="spinner-border text-warning"
+        role="status">
+      </div>
+      <ul style="padding-top: 30px;">
+        <li *ngFor="let car of carDetails|filterPipe:filterText; let i = index;  ">
+          <ng-container *ngIf="car.isRented; else elseTemplate">
+            <div id="rentedDiv" class="card bg-dark border-warning disabled " disabled
+              style="width: 22rem; height: 650px;">
+              <div style="width:100%; height: 200px;">
+                <ng-container *ngIf="car.carImages[0].imagePath !== null; else elseTemplate3">
+                  <img style="height: 100%; height: 100%;" src="https://localhost:44348{{car.carImages[0].imagePath}}"
+                    class="card-img-top" alt="image">
+                  <h2 style="color: red; transform: rotate(25deg); z-index: 15;">This car is Rented</h2>
+
+
+                </ng-container>
+                <ng-template #elseTemplate3>
+                  <img style="height: 100%; height: 100%;" src="assets/img/defaultPicture.jpg" class="card-img-top"
+                    alt="image">
+                  <h2 style="color: red; transform: rotate(25deg); z-index: 15;">This car is Rented</h2>
+
+
+                </ng-template>
+              </div>
+
+
+              <div class="card-body">
+                <h4 class="card-title">{{car.brandName}}</h4>
+
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Model Year</h6>
+                <p class="card-text">{{car.modelYear}}</p>
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Model</h6>
+                <p class="card-text">{{car.modelName}}</p>
+
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Color:</h6>
+                <p> {{car.colorName}}</p>
+
+
+
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Description</h6>
+                <p style="max-lines: 3;    text-overflow: ellipsis;" class="card-text">{{car.description}}
+                </p>
+                <h6 style="color:#d9534f;">Findeks Score : {{car.findeksScore}}</h6>
+                <h6 style="color:#28a745;">Price : {{car.dailyPrice}}$</h6>
+                <div style="margin-bottom: 20px;">
+                  <button class="btn btn-primary" (click)="open(content,i)" disabled id="myBtn">see detail</button>
+                  <button (click)="addToCart(car)" class="btn btn-success" disabled style="margin-left: 15px;">add to
+                    cart</button>
+                </div>
+
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #elseTemplate>
+
+            <div class="card bg-dark border-warning " style="width: 22rem; height: 650px;">
+              <div style="width:100%; height: 200px;">
+                <ng-container *ngIf="car.carImages[0].imagePath !== null; else elseTemplate">
+                  <img style="height: 100%; height: 100%;" src="https://localhost:44348{{car.carImages[0].imagePath}}"
+                    class="card-img-top" alt="image">
+
+
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <img style="height: 100%; height: 100%;" src="assets/img/defaultPicture.jpg" class="card-img-top"
+                    alt="image">
+
+
+                </ng-template>
+              </div>
+
+
+
+              <div class="card-body">
+                <h4 class="card-title">{{car.brandName}}</h4>
+
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Model Year</h6>
+                <p class="card-text">{{car.modelYear}}</p>
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Model</h6>
+                <p class="card-text">{{car.modelName}}</p>
+
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Color:</h6>
+                <p> {{car.colorName}}</p>
+
+                <h6 style="border-bottom: 1px solid #AEAEAE;">Description</h6>
+                <p style="max-lines: 3;    text-overflow: ellipsis;" class="card-text">{{car.description}}
+                </p>
+                <h6 style="color:#d9534f;">Findeks Score : {{car.findeksScore}}</h6>
+                <h6 style="color:#28a745;">Price : {{car.dailyPrice}}$</h6>
+                <div style="margin-bottom: 20px;">
+                  <a class="btn btn-primary" (click)="open(content,i)" id="myBtn">see detail</a>
+                  <a (click)="checkCustomerAndFindeksPoint(car)" class="btn btn-success" style="margin-left: 15px;">add
+                    to cart</a>
+                </div>
+
+              </div>
+            </div>
+          </ng-template>
+
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,78 @@
+<div style="margin-top: 100px;" class="container">
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Brand</th>
+        <th scope="col">Model</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of carDetail; let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{car.brandName}}</td>
+        <td>{{car.modelName}}</td>
+        <td>{{car.dailyPrice}}$</td>
+        <td style="width:180px; height: 90px;">
+          <div>
+            <ng-container *ngIf="car.carImages[0].imagePath !== null; else elseTemplate">
+              <img style="height: 100%; height: 100%;" src="https://localhost:44348{{car.carImages[0].imagePath}}"
+                class="card-img-top" alt="image">
+
+
+            </ng-container>
+            <ng-template #elseTemplate>
+              <img style="height: 100%; height: 100%;" src="assets/img/defaultPicture.jpg" class="card-img-top"
+                alt="image">
+
+
+            </ng-template>
+          </div>
+        </td>
+
+
+      </tr>
+    </tbody>
+  </table>
+
+
+  <form style="margin-bottom: 100px;" class="form-inline" [formGroup]="rentalForm">
+
+    <div class="mb-3">
+      <label style="color: #fff; ">Rent Date</label>
+      <input style="margin-left: 200px; margin-right: 100px;" class="form-control" min="{{ getRentMinDate() }}" value="{{ getRentMinDate() }}" type="date"
+        formControlName="rentDate" />
+    </div>
+    <div class="mb-3">
+      <label style="color: #fff">Rent Date</label>
+      <input class="form-control" min="{{ getReturnMinDate() }}" value="{{ getReturnMinDate() }}"
+        formControlName="returnDate" type="date" />
+    </div>
+    <!-- <div class="form-group">
+      <div style="margin-left: 80px;"  class="input-group">
+        <label style="color:#fff; margin-right: 10px;">Rent Date</label>
+        <input  class="form-control" formControlName="rentDate" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelRentDate" ngbDatepicker
+          #a="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-warning calendar" (click)="a.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div style="margin-left: 150px;" class="input-group">
+        <label style="color:#fff;margin-right: 10px;">Return Date</label>
+        <input class="form-control" formControlName="returnDate" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelReturnDate" ngbDatepicker
+          #b="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-warning calendar"(click)="b.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div> -->
+    <button style="width: 100%; margin-top: 40px;" (click)="rentalCar()" class="btn btn-success btn-lg">Rental</button>
+  </form>
+
+
+</div>

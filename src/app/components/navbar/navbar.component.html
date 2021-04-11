@@ -1,0 +1,34 @@
+<nav style="background-color:#171717;" class="navbar navbar-expand-lg navbar">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand title" href="#"><img style="height: 80px;" src="assets/img/icon_2.png"></a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="links">
+        <li class="nav-item active">
+          <a class="nav-link" href="" style="color:#fff" routerLink="/cars"><i style="color:#fff"
+              class="fas fa-car"></i>Cars</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="" *ngIf="admin" style="color:#fff" routerLink="/admin-dashboard"><i
+              style="color:#fff" class="fas fa-columns"></i>Admin dashboard</a>
+        </li>
+      </ul>
+      <app-cart-summary style="margin-right: 25px;"></app-cart-summary>
+
+      <div class="my-2 my-lg-0">
+        <ng-container *ngIf="auth; else elseTemplate">
+          <app-nav-profile></app-nav-profile>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <app-login></app-login>
+          <app-register></app-register>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+
+</nav>

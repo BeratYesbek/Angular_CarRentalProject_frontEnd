@@ -1,0 +1,78 @@
+<div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+  <h2>Car Add System</h2>
+
+
+  <div id="content" class="container">
+    <form class="container" [formGroup]="carAddFrom">
+      <!-- <div class="form-group">
+        <label for="">Category Id</label>
+        <input type="number" class="form-control" id="" formControlName="categoryId" placeholder="Category Id">
+      </div> -->
+      <div class="form-group">
+        <label for="">Model Year</label>
+        <input type="number" formControlName="modelYear" class="form-control" id="" placeholder="Model Year">
+      </div>
+      <div class="form-group">
+        <label for="">Model Name</label>
+        <input type="text" formControlName="modelName" class="form-control" id="" placeholder="Model Name">
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="">Daily Price</label>
+        <input type="number" formControlName="dailyPrice" class="form-control" id="" placeholder="Daily Price">
+      </div>
+      <div class="form-group">
+        <label for="">Findeks Score</label>
+        <input type="number" formControlName="findeksScore" class="form-control" id="" placeholder="Findeks Score">
+      </div>
+
+      <div class="form-group">
+        <label for="">Description</label>
+        <textarea class="form-control" formControlName="description" placeholder="Description" rows="3"></textarea>
+      </div>
+      <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label style="padding-right: 20px;">Category</label>
+          <select (ngModelChange)="onSelectedCategory($event)" formControlName="categoryId" class="custom-select"
+            style="width:200px;">
+            <option *ngFor="let category of categories" [value]="category.categoryId">
+              {{category.categoryName}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+      <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label style="padding-right: 20px;">Brand</label>
+          <select (ngModelChange)="onSelected($event)"  formControlName="brandId"  class="custom-select"
+            style="width:200px;">
+            <option *ngFor="let brand of brands" [value]="brand.brandId">
+              {{brand.brandName}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+      <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label style="padding-right: 20px;">Color</label>
+          <select (ngModelChange)="onSelectedColor($event)"  formControlName="colorId"  class="custom-select"
+            style="width:200px;">
+            <option *ngFor="let color of colors" [value]="color.colorId">
+              {{color.colorName}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+      <button style="margin-left: 20px; width: 500px;" (click)="add()" class="btn btn-warning btn-lg">Add</button>
+
+
+    </form>
+
+
+  </div>
+</div>

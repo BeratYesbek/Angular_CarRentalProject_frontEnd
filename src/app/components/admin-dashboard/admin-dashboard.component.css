@@ -1,0 +1,27 @@
+table{
+  margin-bottom: 100px;
+}
+h2{
+  margin-top: 100px;
+  margin-bottom: 30px;
+
+  color: #fff;
+  text-align: center;
+}
+img{
+  height: 200px;
+  width: 100%;
+}
+
+h5{
+  color: #fff;
+  text-align: center;
+}
+#card{
+  margin: 10px;
+  margin-left: 30px;
+  transition: all 0.5s;
+}
+#card :hover{
+  opacity: 0.5;
+}

@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+    <div style="margin-top: 35px;" class="col-md-6">
+      <div id="profileImage">
+        <ng-container *ngIf="userDetail[0].images[0];else elseTemplate">
+          <img style="border-radius: 50%;" src="https://localhost:44348{{userDetail[0].images[0].imagePath}}">
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img src="assets/img/avatar.png">
+
+        </ng-template>
+      </div>
+      <form>
+        <!-- (change)="onFileSelected($event)" -->
+        <input style="margin:15px" (change)="checkImage($event)" type="file" id="formFile">
+      </form>
+
+      <div class="card bg-dark border-warning mb-3" style="max-width:25rem; margin-bottom: 100px;">
+        <div class="card-header">
+          <h4 style="color: #fff;">Account Detail</h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-header">First Name: <span>{{userDetail[0].firstName}}</span></h5>
+          <h5 class="card-header">Last Name: <span>{{userDetail[0].lastName}}</span></h5>
+          <h5 class="card-header">Email: <span>{{userDetail[0].email}}</span></h5>
+          <ng-container *ngIf="userDetail[0].customerId.length > 0; else elseTemplate2">
+            <h5 class="card-header">Findeks point: <span>{{userDetail[0].findeksScore[0]}}</span></h5>
+          </ng-container>
+            <ng-template #elseTemplate2>
+
+            <h5 *ngIf="userDetail[0].adminId.length === 0" class="card-header">Findeks point: <span style="font-size: 14px;">You are not customer please can you
+                make customer application
+                <button style="margin:5px" (click)="open(content)" type="button"
+                  class="btn btn-primary">Application</button>
+
+              </span></h5>
+
+          </ng-template>
+          <ng-container *ngIf="userDetail[0].customerId.length > 0; else elseTemplate3">
+            <h5 style="color: crimson;" class="card-header">Type: <span>Prime Account -- Customer <i
+                  style="color: #fff;" class="fas fa-award fa-2x"></i></span></h5>
+
+          </ng-container>
+          <ng-template #elseTemplate3>
+            <ng-container *ngIf="userDetail[0].adminId.length > 0; else elseTemplate4">
+              <h5 style="color: crimson;" class="card-header">Type: <span>Prime Account -- Admin <i style="color: #fff;"
+                    class="fas fa-user-shield fa-2x"></i></span></h5>
+            </ng-container>
+            <ng-template #elseTemplate4>
+
+            </ng-template>
+
+          </ng-template>
+
+
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom: 100px;" class="col-md-6">
+      <form style="margin-top:250px;border-radius: 25px;" class="bg-dark card border-warning" [formGroup]="updateForm">
+        <div style="padding:15px">
+          <div class="form-group">
+            <label>First Name</label>
+            <input formControlName="firstName" type="text" class="form-control">
+            <small class="form-text text-muted">Current First Name : {{userDetail[0].firstName}}</small>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input formControlName="lastName" type="text" class="form-control">
+            <small class="form-text text-muted">Current Last Name : {{userDetail[0].lastName}}</small>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" appEmail>
+            <small id="emailHelp" class="form-text text-muted">Current Email : {{userDetail[0].email}}</small>
+          </div>
+          <button type="button" (click)="updateProfile()" class="btn btn-warning">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Customer Application</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="applicantForm">
+      <div class="form-group">
+        <label style="color:#000">Company Name</label>
+        <input formControlName="companyName" type="text" class="form-control">
+      </div>
+      <button (click)="customerApplication();modal.dismiss()" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+
+</ng-template>

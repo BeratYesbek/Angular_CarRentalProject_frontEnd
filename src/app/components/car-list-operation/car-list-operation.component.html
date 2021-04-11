@@ -1,0 +1,46 @@
+
+<div class="container">
+  <h2>Cars</h2>
+  <table class="table table-striped table-dark">
+
+    <thead>
+      <tr>
+        <th scope="col">CarId</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Model Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Color</th>
+        <th scope="col">Findeks Score</th>
+        <th scope="col">Image</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carDetail of carDetails; let i  =index">
+        <th scope="row">{{carDetail.carId}}</th>
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.modelName}}</td>
+        <td>{{carDetail.categoryName}}</td>
+        <td>{{carDetail.colorName}}</td>
+        <td>{{carDetail.findeksScore}}</td>
+        <td style="width: 150px; height: 80px;">
+          <ng-container *ngIf="carDetail.carImages[0]; else elseTemplate">
+            <img style="width: 100%; height: 100%;" src="https://localhost:44348{{carDetail.carImages[0].imagePath}}">
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img style="width: 100%; height: 100%;" [src]="defaultImage">
+
+          </ng-template>
+        </td>
+        <td>
+          <button style="margin-right: 5px;" routerLink="/cars/car-details/{{carDetail.carId}}" type="button" class="btn btn-success btn-sm">See Detail</button>
+          <button routerLink="/admin-dashboard/edit/{{carDetail.carId}}" style="margin-right: 5px;" type="button"
+            class="btn btn-light btn-sm"><i class="fas fa-edit"></i>Edit</button>
+          <button type="button" (click)="delete(i)" class="btn btn-danger btn-sm"><i
+              class="fas fa-trash-alt"></i>Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,7 @@
+<form [formGroup]="colorAddForm">
+  <div class="form-group">
+    <label>Category</label>
+    <input  type="text" class="form-control" formControlName="colorName"  placeholder="Color" >
+  </div>
+  <button style="width: 150px;" (click)="add()" type="button" class="btn btn-info">Add</button>
+</form>

@@ -1,0 +1,164 @@
+<div style="margin-top: 40px;margin-bottom: 40px;;" class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{car.brandName}}</td>
+            <td>{{car.modelName}}</td>
+            <td>{{car.dailyPrice}}$</td>
+
+            <th><button (click)="removeItem(i)" class="btn btn-outline-danger btn-sm">Remove</button></th>
+          </tr>
+        </tbody>
+      </table>
+
+      <table *ngIf="creditCards.length> 0" class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">card Id</th>
+            <th scope="col">Card Number</th>
+            <th scope="col">Card Name</th>
+            <th scope="col">Card Year</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let creditCard of creditCards">
+            <th scope="row">{{creditCard.id}}</th>
+            <td>{{creditCard.cardNumber}} </td>
+            <td>    {{creditCard.cardName}}</td>
+            <td>{{creditCard.cardYear}}</td>
+
+            <th>  <butto (click)="payment()" class="btn btn-success">Payment this card</butto></th>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="margin-bottom: 20px; width: 18rem;">
+        <div class="card-header">
+          <h5 style=" color:#000">Detail</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let car of cars; let i = index" class="list-group-item">
+            {{car.brandName}} {{car.dailyPrice}}$
+          </li>
+          <li class="list-group-item list">
+            <h5 style="color:#000">total: {{totalPrice}}$ </h5>
+          </li>
+          <li class="list-group-item list-group-item-dark"><button (click)="open(content) ;payment();"
+              style="width: 200px; margin-left: 15px;" class="btn btn-success">Buy</button></li>
+        </ul>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-75 ">
+      <div class="containerr bg-dark border-warning">
+        <div style="margin:10px">
+          <form action="/action_page.php" [formGroup]="paymentForm">
+
+            <div class="row">
+              <div class="col-50">
+                <h3>Billing Address</h3>
+                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                <input formControlName="fullName" type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                <input formControlName="email" type="text" id="email" name="email" placeholder="john@example.com">
+                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                <input formControlName="address" type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input formControlName="city" type="text" id="city" name="city" placeholder="New York">
+
+                <div class="row">
+                  <div class="col-50">
+                    <label for="state">State</label>
+                    <input formControlName="state" type="text" id="state" name="state" placeholder="NY">
+                  </div>
+                  <div class="col-50">
+                    <label for="zip">Zip</label>
+                    <input formControlName="zip" type="text" id="zip" name="zip" placeholder="10001">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-50">
+                <h3>Payment</h3>
+                <label for="fname">Accepted Cards</label>
+                <div class="icon-container">
+                  <i class="fa fa-cc-visa" style="color:navy;"></i>
+                  <i class="fa fa-cc-amex" style="color:blue;"></i>
+                  <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                  <i class="fa fa-cc-discover" style="color:orange;"></i>
+                </div>
+                <label for="cname">Name on Card</label>
+                <input formControlName="cardName" type="text" id="cname" name="cardname" placeholder="John More Doe">
+                <label for="ccnum">Credit card number</label>
+                <input formControlName="cardNumber" type="text" id="ccnum" name="cardnumber"
+                  placeholder="1111-2222-3333-4444">
+                <label for="expmonth">Exp Month</label>
+                <input formControlName="cardMonth" type="text" id="expmonth" name="expmonth" placeholder="September">
+
+                <div class="row">
+                  <div class="col-50">
+                    <label for="expyear">Exp Year</label>
+                    <input formControlName="cardYear" type="number" id="expyear" name="expyear" placeholder="2018">
+                  </div>
+                  <div class="col-50">
+                    <label for="cvv">CVV</label>
+                    <input formControlName="cvv" type="number" id="cvv" name="cvv" placeholder="352">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <label>
+              <input formControlName="checkbox" type="checkbox" checked="checked" name="sameadr"> Shipping address same
+              as billing
+            </label>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 style="color: #000;" class="modal-title" id="modal-basic-title">Offer</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p style="color: #000;">Do you want to add your card ? </p>
+    <button type="button" (click)="saveCard()" class="btn btn-success">Yes</button>
+    <button type="button" (click)="modal.close('Save click')" class="btn btn-danger">No</button>
+  </div>
+</ng-template>

@@ -1,0 +1,59 @@
+<div style="margin-top: 100px; margin-bottom: 100px;" class="container">
+  <h2 style="color:#fff">Rentals</h2>
+  <table class="table  table-dark table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col"> ID</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Brand Name</th>
+        <th scope="col">Rent Date</th>
+        <th scope="col">Return Date </th>
+        <th scope="col">Image</th>
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let rental of rentals; let i = index">
+        <th scope="row">{{rental.id}}</th>
+        <th scope="row">{{rental.customerName}}</th>
+        <td>{{rental.brandName}}</td>
+
+        <td>{{rental.rentDate}}</td>
+        <td>{{rental.returnDate}}</td>
+        <td><img style="width: 200px; height: 120px;" src="https://localhost:44348/{{rental.imagePath}}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 style="color:#fff">Payments</h2>
+
+
+
+  <table class="table  table-dark table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Payment ID</th>
+        <th scope="col">Address</th>
+        <th scope="col">Email</th>
+        <th scope="col">Zip</th>
+        <th scope="col">Card Number</th>
+        <th scope="col">Total Price</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments; let i = index">
+        <th scope="row">{{payment.paymentId}}</th>
+        <td  scope="row">{{payment.address}}</td>
+        <th scope="row">{{payment.email}}</th>
+        <td  scope="row">{{payment.zip}}</td>
+        <th scope="row">{{payment.cardNumber}}</th>
+        <td  scope="row">{{payment.totalPrice}}$</td>
+
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>

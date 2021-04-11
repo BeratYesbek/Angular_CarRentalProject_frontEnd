@@ -1,0 +1,87 @@
+<ng-template #contentAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Customer Add</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form [formGroup]="customerAddForm">
+      <div class="form-group">
+        <label style="color: #000">User Id</label>
+        <input type="number" class="form-control" formControlName="userId">
+      </div>
+      <div class="form-group">
+        <label style="color: #000">Company Name</label>
+        <input type="text" class="form-control" formControlName="companyName">
+      </div>
+      <button type="button" (click)="addCustomer()" class="btn btn-primary">Add</button>
+
+    </form>
+  </div>
+
+</ng-template>
+
+<ng-template #contentUpdate let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Customer update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="customerUpdateForm">
+      <div class="form-group">
+        <label style="color: #000">User Id</label>
+        <input type="number" class="form-control" formControlName="userId">
+        <small class="form-text text-muted">Current User Id: {{selectedCustomer.userId}}</small>
+
+      </div>
+      <div class="form-group">
+        <label style="color: #000">Company Name</label>
+        <input type="text" class="form-control" formControlName="companyName">
+        <small class="form-text text-muted">Current Company Name: {{selectedCustomer.companyName}}</small>
+
+      </div>
+      <button type="button" (click)="updateCustomer()" class="btn btn-primary">Update</button>
+
+    </form>
+  </div>
+
+</ng-template>
+
+
+
+<h2 style="margin-bottom: 30px;">Customers</h2>
+<table class="table  table-dark table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Customer ID</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Company Name</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers; let i = index">
+      <th scope="row">{{customer.customerId}}</th>
+      <td>{{customer.userId}}</td>
+      <td>{{customer.companyName}}</td>
+
+      <td>
+
+        <button style="margin-right: 25px;" type="button" (click)="openUpdateModule(contentUpdate,i)" class="btn btn-primary btn-sm"><i
+            class="far fa-edit"></i>Edit</button>
+
+        <button type="button" (click)="delete(customer)" class="btn btn-danger btn-sm"><i
+            class="fas fa-trash-alt"></i>Delete</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+<button style="margin-right: 25px; width:  200px;" (click)="openAddModule(contentAdd)" type="button"
+  class="btn btn-success">
+  <i style="padding-right: 5px;" class="fas fa-address-card"></i>Customer Add</button>

@@ -1,0 +1,116 @@
+
+<div style="margin-top: 50px;" class="container">
+  <div id="carDetail" class="card mb-12 bg-dark border-warning">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <ng-container *ngIf="carDetailModel.carImages[0]; else elseTemplate">
+          <img style="width: 100%; height: 100%;" src="https://localhost:44348{{carDetailModel.carImages[0].imagePath}}">
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img style="width: 100%; height: 100%;" [src]="defaultImage">
+
+        </ng-template>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+
+          <h5 class="card-title">Brand:<span>{{carDetailModel.brandName}}</span> </h5>
+          <h6 class="card-text">Model Name:<span> {{carDetailModel.modelName}}</span></h6>
+          <h6 class="card-text">Model Year:<span>{{carDetailModel.modelYear}}</span> </h6>
+          <h6 class="card-text">Color:<span> {{carDetailModel.colorName}}</span></h6>
+          <h6 class="card-text">Category:<span>{{carDetailModel.categoryName}}</span> </h6>
+          <h6 class="card-text">Daily Price:<span> {{carDetailModel.dailyPrice}}</span></h6>
+          <h6 class="card-text">Findeks Score:<span>{{carDetailModel.findeksScore}}</span> </h6>
+
+          <h6 class= "car-text">Description :<span>{{carDetailModel.description}}</span>  </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+  <h2>Car Edit System</h2>
+
+
+  <div id="content" class="container">
+    <form class="container" [formGroup]="carEditForm">
+
+      <div class="form-group">
+        <label for="">Model Year</label>
+        <input type="number" formControlName="modelYear" class="form-control" id="" placeholder="Model Year">
+      </div>
+      <div class="form-group">
+        <label for="">Model Name</label>
+        <input type="text" formControlName="modelName" class="form-control" id="" placeholder="Model Name">
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="">Daily Price</label>
+        <input type="number" formControlName="dailyPrice" class="form-control" id="" placeholder="Daily Price">
+      </div>
+      <div class="form-group">
+        <label for="">Findeks Score</label>
+        <input type="number" formControlName="findeksScore" class="form-control" id=""  placeholder="Findeks Score">
+      </div>
+
+      <div class="form-group">
+        <label for="">Description</label>
+        <textarea class="form-control" formControlName="description" placeholder="Description" rows="3"></textarea>
+      </div>
+      <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label style="padding-right: 20px;">Category</label>
+          <select  (ngModelChange)="onSelectedCategory($event)" formControlName="categoryId"   class="custom-select"
+            style="width:200px;">
+            <option  *ngFor="let category of categories" [value]="category.categoryId">
+              {{category.categoryName}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+      <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label style="padding-right: 40px;">Brand</label>
+          <select  (ngModelChange)="onSelected($event)" formControlName="brandId" class="custom-select"
+            style="width:200px;">
+            <option  *ngFor="let brand of brands" [value]="brand.brandId">
+              {{brand.brandName}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+      <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label style="padding-right: 40px;">Color</label>
+          <select  (ngModelChange)="onSelectedColor($event)" formControlName="colorId" class="custom-select"
+            style="width:200px;">
+            <option *ngFor="let color of colors" [value]="color.colorId">
+              {{color.colorName}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+      <form [formGroup]="carImageForm">
+        <div style="width: 200px;" class="mb-3 row">
+          <label for="formFile" class="form-label">Choose Image</label>
+          <input type="file" formControlName="file" (change)="checkImage($event)" id="formFile">
+        </div>
+        <!-- <input type="file"  style="margin-left: 50px;" > -->
+
+      </form>
+      <button style="margin-left: 20px; width: 500px;" (click)="update()" class="btn btn-warning btn-lg">Update</button>
+
+
+    </form>
+
+
+  </div>
+</div>

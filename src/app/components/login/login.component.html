@@ -1,0 +1,27 @@
+<button style="margin-right: 10px;"  type="button" (click)="openLogin(login)" class="btn btn-light">LOGIN
+  IN</button>
+
+<ng-template #login let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form  [formGroup]="loginFormGroup">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input formControlName="email" name="modal" type="email" class="form-control" aria-describedby="emailHelp" appEmail>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input formControlName="password"  name="modal" type="password" class="form-control">
+      </div>
+      <button (click)="authLogin(); modal.dismiss()" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</ng-template>
+
+

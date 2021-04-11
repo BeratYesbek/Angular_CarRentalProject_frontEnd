@@ -1,0 +1,8 @@
+<form [formGroup]="branAddForm">
+  <div class="form-group">
+    <label >Brand</label>
+    <input type="text" class="form-control" formControlName="brandName"  placeholder="brand">
+  </div>
+  <button style="width: 150px;" (click)="add()" type="button" class="btn btn-success">Add</button>
+
+</form>

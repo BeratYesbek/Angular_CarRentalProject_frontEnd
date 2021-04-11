@@ -1,0 +1,18 @@
+<h4 style="color:#fff; margin: 10px;">Categories</h4>
+<ul class="list-group"  style="width: 16rem;">
+  <li  [class]="getAllCurrentCategoryClass()" (click)="setAllCategoryClass()"  class="list-group-item border-warning" routerLink="/cars">All Cars</li>
+
+  <li  class="list-group-item  border-warning" (click)="setCurrentCategory(category)"
+   routerLink = "/cars/category/{{category.categoryId}}"
+   *ngFor="let category of categories; let i = index"
+    [class]="getCurrentCategoryClass(category)">
+    {{category.categoryName}}
+  </li>
+</ul>
+<div class="row">
+  <div class="col-md-12">
+    <h6 style="color: #ffc107;" *ngIf="currentCategory">Current Category: <p style="color:#fff">{{currentCategory.categoryName}}</p> </h6>
+
+  </div>
+
+</div>
