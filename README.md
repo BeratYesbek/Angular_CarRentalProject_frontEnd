@@ -1,5 +1,11 @@
-# NetCoreFrontend
-
+# NetCore_CarRentalProject_Frontend
+  
+ English :   That was a good experience for me I used this project angular with asp-net api. I have tried to comply solid principles. It is not completely finished and solid. has a few shortcoming. I used toastr service, asp net api (check my repository "NetCore_CarRentalProject_backend") and a few algorithms. has two diffrent user customer of car rental  project and  user customer be  able to rent a car but user cannot rent a car user first demand customer application on the system. Rental car has two different user. customer and user. customer is able to rent a car but user cannot rent a car. User must demand to being customer for can rent a car Also  Customer is able to  payment  on the a fake bank system. If customer has not enough findeks score cannot not to rent a car. Admin can add update and delete cars,brands, colors and categories. Users who are admin can add image from UI I mainly used  bootstrap and ng bootstrap.
+ 
+ 
+ Turkish :  Angular ve asp net api ile car rental adında bir proje geliştirdim. solid prensiblerine bağlı kalmaya çalıştım elbette bir kaç eksiği var. bu projede kullanıcı ve müşteri olarak iki farlı gurup mevcuttur kullanıcılar müşteri olma talebinde bulunabilir araba kiralayabilir ve sahte bir banka ödeme sistemi ile ödeme yapabilir.Eğer müşteri yeterli findeks puanına sahip değilse kiralama işlemi yapamaz. Admin olan kullanıcılar araba ve resimmlerini arayüzden ekleyebilir bunun yanında marka renk kategori müşteri taleblerini değerlendirme gibi bir çok şey daha yapabiir. Projede bootstrap ve ng bootstrap ağrılıklı olarak kullandım.
+ 
+ 
 ![NetCoreFrontend - Google Chrome 11_04_2021 12_58_45](https://user-images.githubusercontent.com/77804034/114303409-ac571880-9ad6-11eb-8fdb-b76553d5780e.png)
 ![NetCoreFrontend - Google Chrome 11_04_2021 14_46_47](https://user-images.githubusercontent.com/77804034/114303425-b711ad80-9ad6-11eb-9a9e-02f52c90c496.png)
 ![NetCoreFrontend - Google Chrome 11_04_2021 14_10_36](https://user-images.githubusercontent.com/77804034/114303433-bed15200-9ad6-11eb-8a6f-aae049b1142c.png)
