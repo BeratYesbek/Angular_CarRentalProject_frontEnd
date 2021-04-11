@@ -23,7 +23,6 @@
 ![NetCoreFrontend - Google Chrome 11_04_2021 14_38_32](https://user-images.githubusercontent.com/77804034/114302851-9e53c880-9ad3-11eb-92a4-f4a30d83fb69.png)
 
 
-![NetCoreFrontend - Google Chrome 11_04_2021 14_10_26](https://user-images.githubusercontent.com/77804034/114302827-8419ea80-9ad3-11eb-851b-64994aa75ce2.png)
 ![NetCoreFrontend - Google Chrome 11_04_2021 14_10_36](https://user-images.githubusercontent.com/77804034/114302830-8714db00-9ad3-11eb-8336-b220f03df7c9.png)
 ![NetCoreFrontend - Google Chrome 11_04_2021 14_10_45](https://user-images.githubusercontent.com/77804034/114302834-8a0fcb80-9ad3-11eb-91b0-7457e5be4207.png)
 ![NetCoreFrontend - Google Chrome 11_04_2021 14_11_31](https://user-images.githubusercontent.com/77804034/114302836-9005ac80-9ad3-11eb-8837-caae7c86d64d.png)
