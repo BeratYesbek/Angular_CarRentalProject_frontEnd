@@ -6,7 +6,7 @@
  
  Türkçe
  
-  Angular ve asp net api ile car rental adında bir proje geliştirdim. solid prensiblerine bağlı kalmaya çalıştım elbette bir kaç eksiği var. bu projede kullanıcı ve müşteri olarak iki farlı gurup mevcuttur kullanıcılar müşteri olma talebinde bulunabilir araba kiralayabilir ve sahte bir banka ödeme sistemi ile ödeme yapabilir.Eğer müşteri yeterli findeks puanına sahip değilse kiralama işlemi yapamaz. Admin olan kullanıcılar araba ve resimmlerini arayüzden ekleyebilir bunun yanında marka renk kategori müşteri taleblerini değerlendirme gibi bir çok şey daha yapabiir. Projede bootstrap ve ng bootstrap ağrılıklı olarak kullandım.
+  Angular ve asp net api ile car rental adında bir proje geliştirdim. solid prensiblerine bağlı kalmaya çalıştım elbette bir kaç eksiği var. bu projede kullanıcı ve müşteri olarak iki farklı grup mevcuttur kullanıcılar müşteri olma talebinde bulunabilir araba kiralayabilir ve sahte bir banka ödeme sistemi ile ödeme yapabilir.Eğer müşteri yeterli findeks puanına sahip değilse kiralama işlemi yapamaz. Admin olan kullanıcılar araba ve resimmlerini arayüzden ekleyebilir bunun yanında marka renk kategori müşteri taleblerini değerlendirme gibi bir çok şey daha yapabiir. Projede bootstrap ve ng bootstrap ağrılıklı olarak kullandım.
  
  
  
