@@ -1,5 +1,8 @@
 # NetCoreFrontend
 
+![556weh](https://user-images.githubusercontent.com/77804034/114301789-e8867b00-9ace-11eb-97cd-a8cba74f79ae.gif)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
 
 ## Development server
