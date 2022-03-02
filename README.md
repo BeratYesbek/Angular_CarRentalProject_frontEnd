@@ -1,10 +1,10 @@
 # NetCore_CarRentalProject_Frontend
   
- English 
  
- I used angular with asp-net api in this project. I have tried to comply solid principles. It is not completely finished and solid. has a few shortcoming. I used toastr service, asp net api (check my repository "NetCore_CarRentalProject_backend") and a few algorithms. has two diffrent user customer of car rental  project and  user customer be  able to rent a car but user cannot rent a car user first demand customer application on the system. Rental car has two different user. customer and user. customer is able to rent a car but user cannot rent a car. User must demand to being customer for can rent a car Also  Customer is able to  payment  on the a fake bank system. If customer has not enough findeks score cannot not to rent a car. Admin can add update and delete cars,brands, colors and categories. Users who are admin can add image from UI I mainly used  bootstrap and ng bootstrap.
  
- Türkçe
+ I used angular with asp-net api in this project. I have tried to comply to solid principles. It is not completely finished and solid. Has a few shortcomings. I used toastr service, asp net api (check my repository "NetCore_CarRentalProject_backend") and a few algorithms. Has two different user customers of car rental  project and  user customer be  able to rent a car, but user cannot rent a car user first demand customer application on the system. Rental car has two different user. Customer and user. Customer is able to rent a car, but user cannot rent a car. User must demand to being customer for can rent a car Also  Customer is able to  payment  on the fake bank system. If customer has not enough findeks score, cannot not to rent a car. Admin can add update and delete cars, brands, colors and categories. Users who are admin can add image from UI, I mainly used  bootstrap and ng bootstrap.
+ 
+
  
   Angular ve asp net api ile car rental adında bir proje geliştirdim. solid prensiblerine bağlı kalmaya çalıştım elbette bir kaç eksiği var. bu projede kullanıcı ve müşteri olarak iki farklı grup mevcuttur kullanıcılar müşteri olma talebinde bulunabilir araba kiralayabilir ve sahte bir banka ödeme sistemi ile ödeme yapabilir.Eğer müşteri yeterli findeks puanına sahip değilse kiralama işlemi yapamaz. Admin olan kullanıcılar araba ve resimmlerini arayüzden ekleyebilir bunun yanında marka renk kategori müşteri taleblerini değerlendirme gibi bir çok şey daha yapabiir. Projede bootstrap ve ng bootstrap ağrılıklı olarak kullandım.
  
